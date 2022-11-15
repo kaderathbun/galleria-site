@@ -1,0 +1,26 @@
+// detail page author icon
+@mixin detail-author-portrait-s {
+  width: 64px;
+  height: 64px;
+}
+@mixin detail-author-portrait-m {
+  width: 128px;
+  height: 128px;
+}
+@mixin detail-author-portrait-l {
+  width: 128px;
+  height: 128px;
+}
+// detail page author work
+@mixin detail-author-works-s {
+  width: 327px;
+  height: 280px;
+}
+@mixin detail-author-works-m {
+  width: 475px;
+  height: 560px;
+}
+@mixin detail-author-works-l {
+  width: 475px;
+  height: 560px;
+}
