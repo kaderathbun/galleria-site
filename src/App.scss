@@ -1,2 +1,12 @@
 @import '/src/scss/variables';
 @import '/src/scss/mixins';
+
+a {
+  text-decoration: none;
+  color: $grey-dark;
+}
+
+body {
+  font-family: $font;
+  font-weight: $weight-reg;
+}

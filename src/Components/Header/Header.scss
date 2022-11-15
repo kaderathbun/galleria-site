@@ -1,2 +1,21 @@
 @import '/src/scss/variables';
 @import '/src/scss/mixins';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba($grey-medium, 1);
+
+  &__logo {
+    width: 113px;
+    height: auto;
+  }
+  &__btn-slideshow {
+    font-size: 0.9rem;
+    letter-spacing: 1.93px;
+    text-transform: uppercase;
+  }
+}

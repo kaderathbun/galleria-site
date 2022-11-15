@@ -1,2 +1,52 @@
 @import '/src/scss/variables';
 @import '/src/scss/mixins';
+
+address {
+  font-style: normal;
+}
+
+.main {
+  margin-bottom: 10px;
+
+  &__work-container {
+    padding: 10px 20px;
+  }
+  &__link-overlay {
+    position: relative;
+
+    & > img {
+      min-height: 285px;
+      object-fit: cover;
+    }
+  }
+  &__overlay {
+    position: absolute;
+    z-index: 998;
+    bottom: 0;
+    height: 140px;
+    width: 100%;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  &__work-caption {
+    position: absolute;
+    z-index: 999;
+    bottom: 25px;
+    left: 25px;
+    width: 70%;
+
+    & > span {
+      font-size: 2.4rem;
+      font-weight: $weight-bold;
+      line-height: 0;
+      color: $white;
+    }
+    & > address {
+      font-size: 1.3rem;
+      color: rgba($white, 0.75);
+    }
+  }
+}
