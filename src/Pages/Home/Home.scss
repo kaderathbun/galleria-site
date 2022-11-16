@@ -13,8 +13,10 @@ address {
   }
   &__link-overlay {
     position: relative;
+    cursor: pointer;
 
     & > img {
+      width: 100%;
       min-height: 285px;
       object-fit: cover;
     }
@@ -37,16 +39,53 @@ address {
     bottom: 25px;
     left: 25px;
     width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     & > span {
       font-size: 2.4rem;
       font-weight: $weight-bold;
-      line-height: 0;
       color: $white;
     }
     & > address {
       font-size: 1.3rem;
       color: rgba($white, 0.75);
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .main {
+    column-count: 2;
+    column-gap: 35px;
+    margin-bottom: 17.5px;
+    margin-inline: 35px;
+
+    &__work-container {
+      padding: 0;
+      padding-block: 17.5px;
+    }
+    &__link-overlay {
+      & > img {
+        min-height: initial;
+      }
+    }
+    &__work-caption {
+      gap: 5px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .main {
+    column-count: 4;
+    margin-bottom: 35px;
+
+    &__work-container {
+      padding-block: 0;
+      padding-bottom: 0;
+      margin-bottom: 35px;
     }
   }
 }

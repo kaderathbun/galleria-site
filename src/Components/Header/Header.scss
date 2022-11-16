@@ -15,7 +15,25 @@
   }
   &__btn-slideshow {
     font-size: 0.9rem;
+    font-weight: $weight-bold;
     letter-spacing: 1.93px;
     text-transform: uppercase;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    margin-bottom: 17.5px;
+    padding: 25px 35px;
+
+    &__btn-slideshow {
+      font-size: 1.2rem;
+    }
+  } 
+}
+
+@media only screen and (min-width: 1440px) {
+  .header {
+    margin-bottom: 35px;
   }
 }

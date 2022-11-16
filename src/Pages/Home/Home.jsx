@@ -12,7 +12,7 @@ function Home({ data }) {
     <main className="main">
       {data.map((work) => {
         return (
-          <figure className="main__work-container">
+          <figure key={work.name} className="main__work-container">
             <Link
               className="main__link-overlay"
               key={work.name}
