@@ -14,11 +14,11 @@ function Header() {
 
   return (
     <header className="header">
-      <img className='header__logo' src={Logo} alt="Galleria" />
+      <img className="header__logo" src={Logo} alt="Galleria" />
       <Link
         className="header__btn-slideshow"
         onClick={handleIsHome}
-        to={isHome ? '/galleria/starry-night' : '/galleria/'}
+        to={isHome ? '/galleria/slideshow' : '/galleria/'}
       >
         {isHome ? 'Start Slideshow' : 'Stop Slideshow'}
       </Link>

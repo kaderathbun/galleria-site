@@ -9,7 +9,6 @@ import './App.scss'
 
 // components
 import Header from './Components/Header/Header'
-import ImageWorks from './Components/ImageWorks/ImageWorks'
 
 // pages
 import Home from './Pages/Home/Home'
@@ -22,7 +21,7 @@ function App() {
         <Header />
         <Routes>
           <Route index path="/galleria" element={<Home data={data} />} />
-          <Route path="/galleria/:galleryId" element={<Gallery data={data} />} />
+          <Route path="/galleria/slideshow" element={<Gallery data={data} />} />
         </Routes>
       </BrowserRouter>
     </div>
