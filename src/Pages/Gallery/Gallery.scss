@@ -1,2 +1,118 @@
 @import '/src/scss/variables';
 @import '/src/scss/mixins';
+
+.gallery {
+  &__container {
+    position: relative;
+  }
+  &__image {
+    padding: 10px 20px;
+    margin-bottom: 145px;
+    width: 100%;
+    object-fit: cover;
+  }
+  &__content-wrapper {
+    position: absolute;
+    bottom: -95px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: $white;
+    width: 78%;
+    max-width: 480px;
+    padding: 20px 40px 0px;
+  }
+  &__name {
+    font-size: 2.4rem;
+    font-weight: $weight-bold;
+    line-height: 29px;
+  }
+  &__artist-name {
+    font-size: 1.5rem;
+    color: $grey-dark;
+  }
+  &__artist-image {
+    width: 64px;
+    height: 64px;
+    margin-left: -20px;
+  }
+  &__description-container {
+    position: relative;
+    padding-inline: 20px;
+  }
+  &__year {
+    position: absolute;
+    top: -65px;
+    right: 20px;
+    font-size: 100px;
+    font-weight: $weight-bold;
+    line-height: 100px;
+    color: $grey-light;
+  }
+  &__description {
+    position: relative;
+    z-index: 999;
+    font-size: 1.4rem;
+    font-weight: $weight-bold;
+    line-height: 28px;
+    color: $grey-dark;
+  }
+  &__source {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: $weight-bold;
+    letter-spacing: 1.93px;
+    text-decoration: underline;
+    color: $grey-dark;
+    display: block;
+    margin: 70px 20px 70px 0;
+  }
+}
+
+.footer {
+  &__progress-bg {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: $grey-medium;
+  }
+  &__progress-overlay {
+    position: absolute;
+    z-index: 999;
+    width: 50px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background-color: $black;
+  }
+  &__nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    font-size: 1.4rem;
+    font-weight: $weight-bold;
+    color: $black;
+  }
+  &__artist {
+    font-size: 1rem;
+    color: $grey-dark;
+  }
+  &__btn-wrapper {
+    display: flex;
+    gap: 30px;
+
+    > button {
+      background-color: transparent;
+      border: 0;
+      width: 16px;
+      height: auto;
+    }
+  }
+}

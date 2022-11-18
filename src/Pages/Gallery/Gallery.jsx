@@ -19,7 +19,7 @@ function Gallery({ data }) {
       case ACTIONS.UPDATE:
         return {
           ...state,
-          image: data[i].images.gallery,
+          image: data[i].images.hero.small,
           name: data[i].name,
           artist: data[i].artist.name,
           artistImg: data[i].artist.image,
@@ -32,7 +32,7 @@ function Gallery({ data }) {
     }
   }
   const [state, dispatch] = useReducer(contentReducer, {
-    image: data[0].images.gallery,
+    image: data[0].images.hero.small,
     name: data[0].name,
     artist: data[0].artist.name,
     artistImg: data[0].artist.image,
@@ -64,13 +64,17 @@ function Gallery({ data }) {
     <main className="gallery">
       <div className="gallery__container">
         <ImageWorks
+          className="gallery__image"
           source={state.image}
           alt={`"${state.name}" by ${state.artist}, ${state.year}`}
         />
         <div className="gallery__content-wrapper">
           <h1 className="gallery__name">{state.name}</h1>
-          <address className="gallery__artist">{state.artist}</address>
-          <ImageWorks source={state.artistImg} />
+          <address className="gallery__artist-name">{state.artist}</address>
+          <ImageWorks
+            className="gallery__artist-image"
+            source={state.artistImg}
+          />
         </div>
       </div>
       <article className="gallery__description-container">
@@ -86,19 +90,26 @@ function Gallery({ data }) {
         </a>
       </article>
       <footer className="footer">
-        <hr className="footer__progress" />
-        <div className="footer__content-wrapper">
-          <span className="footer__title">{state.name}</span>
-          <span className="footer__artist">{state.artist}</span>
+        <div className="footer__progress-bg">
+          <div
+            className="footer__progress-overlay"
+            style={{ width: (i / (data.length - 1)) * 100 + '%' }}
+          />
         </div>
-        <div className="footer__btn-wrapper">
-          <button onClick={decrementIndex}>
-            <img src={btnPrev} alt="previous" />
-          </button>
-          <button onClick={incrementIndex}>
-            <img src={btnNext} alt="next" />
-          </button>
-        </div>
+        <nav className="footer__nav-container">
+          <div className="footer__content-wrapper">
+            <span className="footer__title">{state.name}</span>
+            <span className="footer__artist">{state.artist}</span>
+          </div>
+          <div className="footer__btn-wrapper">
+            <button onClick={decrementIndex}>
+              <img src={btnPrev} alt="previous" />
+            </button>
+            <button onClick={incrementIndex}>
+              <img src={btnNext} alt="next" />
+            </button>
+          </div>
+        </nav>
       </footer>
     </main>
   )
