@@ -2,10 +2,11 @@ import React, { useState, useReducer } from 'react'
 
 // styles
 import './Gallery.scss'
+import { useMediaQuery } from 'react-responsive'
 import btnPrev from '../../assets/shared/icon-back-button.svg'
 import btnNext from '../../assets/shared/icon-next-button.svg'
 
-// componentsS
+// components
 import ImageWorks from '../../Components/ImageWorks/ImageWorks'
 
 const ACTIONS = {
@@ -13,13 +14,17 @@ const ACTIONS = {
 }
 
 function Gallery({ data }) {
+  // changes art work image at certain viewport
+  const isMobile = useMediaQuery({ query: '(max-width: 460px)' })
+
   const [i, setIndex] = useState(0)
   const contentReducer = (state, actions) => {
     switch (actions.type) {
       case ACTIONS.UPDATE:
         return {
           ...state,
-          image: data[i].images.hero.small,
+          imageMobile: data[i].images.hero.small,
+          imageLarge: data[i].images.hero.large,
           name: data[i].name,
           artist: data[i].artist.name,
           artistImg: data[i].artist.image,
@@ -32,7 +37,8 @@ function Gallery({ data }) {
     }
   }
   const [state, dispatch] = useReducer(contentReducer, {
-    image: data[0].images.hero.small,
+    imageMobile: data[0].images.hero.small,
+    imageLarge: data[0].images.hero.large,
     name: data[0].name,
     artist: data[0].artist.name,
     artistImg: data[0].artist.image,
@@ -65,7 +71,7 @@ function Gallery({ data }) {
       <div className="gallery__container">
         <ImageWorks
           className="gallery__image"
-          source={state.image}
+          source={isMobile ? state.imageMobile : state.imageLarge}
           alt={`"${state.name}" by ${state.artist}, ${state.year}`}
         />
         <div className="gallery__content-wrapper">
@@ -93,7 +99,7 @@ function Gallery({ data }) {
         <div className="footer__progress-bg">
           <div
             className="footer__progress-overlay"
-            style={{ width: (i / (data.length - 1)) * 100 + '%' }}
+            style={{ width: ((i + 1) / data.length) * 100 + '%' }}
           />
         </div>
         <nav className="footer__nav-container">
