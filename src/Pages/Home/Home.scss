@@ -10,6 +10,13 @@ address {
 
   &__work-container {
     padding: 10px 20px;
+    transition: all 0.5s ease;
+
+    &:hover {
+      backface-visibility: hidden;
+      transform: scale(.98);
+      filter: drop-shadow(0px 0px 30px $black) saturate(1.25);
+    }
   }
   &__link-overlay {
     position: relative;

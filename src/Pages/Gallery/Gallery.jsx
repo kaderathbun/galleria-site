@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useState, useReducer, useEffect } from 'react'
 
 // styles
 import './Gallery.scss'
@@ -47,6 +47,11 @@ function Gallery({ data }) {
     source: data[0].source,
   })
 
+  // changes document title when state is updated
+  useEffect(() => {
+    document.title = `Galleria | ${state.name}`
+  }, [state])
+
   const decrementIndex = () => {
     if (i <= 0) {
       setIndex(data.length - 1)
@@ -80,6 +85,7 @@ function Gallery({ data }) {
           <ImageWorks
             className="gallery__artist-image"
             source={state.artistImg}
+            alt={`${state.artist} portrait`}
           />
         </div>
       </section>

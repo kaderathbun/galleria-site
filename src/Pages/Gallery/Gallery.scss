@@ -66,6 +66,12 @@
     color: $grey-dark;
     display: block;
     margin: 70px 20px 70px 0;
+    transition: all 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+      color: $black;
+    }
   }
 }
 
@@ -114,6 +120,12 @@
       border: 0;
       width: 16px;
       height: auto;
+      transition: all 0.25s ease;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 50%;
+      }
     }
   }
 }

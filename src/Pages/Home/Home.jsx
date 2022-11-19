@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 // styles
@@ -8,6 +8,11 @@ import './Home.scss'
 import ImageWorks from '../../Components/ImageWorks/ImageWorks'
 
 function Home({ data }) {
+  // set document title when component first mounts
+  useEffect(() => {
+    document.title = `Galleria | Discover Masterpieces`
+  }, [])
+
   return (
     <main className="home">
       {data.map((work) => {
@@ -16,7 +21,7 @@ function Home({ data }) {
             <Link
               className="home__link-overlay"
               key={work.name}
-              to={`/galleria/${work.name.toLowerCase().replaceAll(' ', '-')}`}
+              to={`/galleria/slideshow`}
             >
               <div className="home__overlay"></div>
               <ImageWorks
