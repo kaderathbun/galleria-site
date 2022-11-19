@@ -24,16 +24,22 @@
 @media only screen and (min-width: 768px) {
   .header {
     margin-bottom: 17.5px;
-    padding: 25px 35px;
+    padding: 20px 40px;
 
     &__btn-slideshow {
       font-size: 1.2rem;
     }
-  } 
+  }
 }
 
 @media only screen and (min-width: 1440px) {
   .header {
     margin-bottom: 35px;
+    margin-inline: 40px;
+    padding: 30px 40px;
+
+    &__logo {
+      width: 170px;
+    }
   }
 }

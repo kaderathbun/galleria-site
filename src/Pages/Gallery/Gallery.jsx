@@ -68,7 +68,7 @@ function Gallery({ data }) {
 
   return (
     <main className="gallery">
-      <div className="gallery__container">
+      <section className="gallery__container">
         <ImageWorks
           className="gallery__image"
           source={isMobile ? state.imageMobile : state.imageLarge}
@@ -82,7 +82,7 @@ function Gallery({ data }) {
             source={state.artistImg}
           />
         </div>
-      </div>
+      </section>
       <article className="gallery__description-container">
         <span className="gallery__year">{state.year}</span>
         <p className="gallery__description">{state.description}</p>

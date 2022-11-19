@@ -117,10 +117,19 @@
     }
   }
 }
+@media only screen and (min-width: 461px) {
+  .gallery {
+    &__content-wrapper {
+      bottom: -75px;
+    }
+  }
+}
 
 @media only screen and (min-width: 768px) {
   .gallery {
     &__container {
+      max-width: 840px;
+      margin: 0 auto;
     }
     &__image {
       width: 75%;
@@ -128,7 +137,7 @@
     }
     &__content-wrapper {
       bottom: initial;
-      top: 20px;
+      top: 19px;
       right: 40px;
       gap: 20px;
       padding: 0;
@@ -147,7 +156,7 @@
     }
     &__artist-image {
       position: absolute;
-      right: 32px;
+      right: 24px;
       bottom: -128px;
       width: 128px;
       height: 128px;
@@ -187,6 +196,64 @@
       > button {
         width: 25px;
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr min-content;
+    margin-top: 50px;
+
+    &__container {
+      max-width: 1440px;
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+    &__image {
+      width: 70%;
+    }
+    &__content-wrapper {
+      right: -90px;
+      top: 19px;
+    }
+    &__artist-image {
+      right: initial;
+      left: 100px;
+      bottom: -295px;
+    }
+    &__description-container {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      padding-inline: 185px;
+      align-self: end;
+    }
+    &__year {
+      top: -125px;
+      left: 185px;
+    }
+  }
+
+  .footer {
+    grid-column: 1/3;
+    grid-row: 2/3;
+
+    &__nav-container {
+      padding: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1441px) {
+  .gallery {
+    &__description-container {
+      align-self: center;
+    }
+    &__artist-image {
+      left: initial;
+      right: 45%;
     }
   }
 }
