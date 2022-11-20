@@ -5,6 +5,22 @@
   &__container {
     position: relative;
   }
+  &__btn-view {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    padding: 10px 15px;
+    background: rgba($black, 0.75);
+    border: none;
+    color: $white;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2.14px;
+    text-transform: uppercase;
+  }
   &__image {
     padding: 10px 20px;
     margin-bottom: 145px;
@@ -129,6 +145,29 @@
     }
   }
 }
+
+.modal {
+  &__close {
+    position: fixed;
+    top: 25%;
+    right: 20px;
+    font-size: 1.4rem;
+    color: $white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+  }
+  &__image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-inline: 20px;
+    z-index: 1000;
+  }
+}
+
 @media only screen and (min-width: 461px) {
   .gallery {
     &__content-wrapper {
@@ -226,7 +265,7 @@
       grid-row: 1/2;
     }
     &__image {
-      width: 80%;
+      width: 75%;
     }
     &__content-wrapper {
       right: -145px;
@@ -234,7 +273,7 @@
     }
     &__artist-image {
       right: initial;
-      left: 120px;
+      left: 85px;
       bottom: -295px;
     }
     &__description-container {
@@ -264,6 +303,11 @@
   .gallery {
     &__description-container {
       align-self: center;
+    }
+    &__artist-image {
+      left: auto;
+      right: 47.5%;
+      bottom: -90%;
     }
   }
 }

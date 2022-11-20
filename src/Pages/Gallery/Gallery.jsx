@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 
 // styles
@@ -6,9 +6,11 @@ import './Gallery.scss'
 import { useMediaQuery } from 'react-responsive'
 import btnPrev from '../../assets/shared/icon-back-button.svg'
 import btnNext from '../../assets/shared/icon-next-button.svg'
+import modalIcon from '../../assets/shared/icon-view-image.svg'
 
 // components
 import ImageWorks from '../../Components/ImageWorks/ImageWorks'
+import Modal from '../../Components/Modal/Modal'
 
 // helpers
 import { ContentContext } from '../../Helpers/ContentContext'
@@ -19,12 +21,14 @@ function Gallery() {
 
   // changes art work image at certain viewport
   const isMobile = useMediaQuery({ query: '(max-width: 460px)' })
+  const [isOpen, setIsOpen] = useState(false)
 
   // changes document title when state is updated
   useEffect(() => {
     document.title = `Galleria | ${state.name}`
     setIsHome(false)
-  }, [state, setIsHome])
+    setIsOpen(false)
+  }, [state, setIsHome, setIsOpen])
 
   // button controllers
   const decrementIndex = () => {
@@ -46,6 +50,13 @@ function Gallery() {
     }
   }
 
+  const handleOpen = () => {
+    setIsOpen(true)
+  }
+  const handleClose = () => {
+    setIsOpen(false)
+  }
+
   return (
     <main className="gallery">
       <motion.section
@@ -54,6 +65,10 @@ function Gallery() {
         transition={{ duration: 1.5 }}
         className="gallery__container"
       >
+        <button onClick={handleOpen} className="gallery__btn-view">
+          <img src={modalIcon} alt="View Work" />
+          View Image
+        </button>
         <ImageWorks
           className="gallery__image"
           source={isMobile ? state.imageMobile : state.imageLarge}
@@ -134,6 +149,18 @@ function Gallery() {
           </div>
         </nav>
       </footer>
+      {isOpen ? (
+        <Modal>
+          <button onClick={handleClose} className="modal__close">
+            Close
+          </button>
+          <ImageWorks
+            className="modal__image"
+            source={state.imageLarge}
+            alt={`"${state.name}" by ${state.artist}, ${state.year}`}
+          />
+        </Modal>
+      ) : null}
     </main>
   )
 }
