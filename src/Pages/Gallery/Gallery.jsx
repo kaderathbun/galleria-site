@@ -1,4 +1,5 @@
-import React, { useState, useReducer, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
+import { motion } from 'framer-motion'
 
 // styles
 import './Gallery.scss'
@@ -9,51 +10,25 @@ import btnNext from '../../assets/shared/icon-next-button.svg'
 // components
 import ImageWorks from '../../Components/ImageWorks/ImageWorks'
 
-const ACTIONS = {
-  UPDATE: 'UPDATE',
-}
+// helpers
+import { ContentContext } from '../../Helpers/ContentContext'
 
-function Gallery({ data }) {
+function Gallery() {
+  const { data, state, dispatch, index, setIndex, ACTIONS, setIsHome } =
+    useContext(ContentContext)
+
   // changes art work image at certain viewport
   const isMobile = useMediaQuery({ query: '(max-width: 460px)' })
-
-  const [i, setIndex] = useState(0)
-  const contentReducer = (state, actions) => {
-    switch (actions.type) {
-      case ACTIONS.UPDATE:
-        return {
-          ...state,
-          imageMobile: data[i].images.hero.small,
-          imageLarge: data[i].images.hero.large,
-          name: data[i].name,
-          artist: data[i].artist.name,
-          artistImg: data[i].artist.image,
-          year: data[i].year,
-          description: data[i].description,
-          source: data[i].source,
-        }
-      default:
-        return state
-    }
-  }
-  const [state, dispatch] = useReducer(contentReducer, {
-    imageMobile: data[0].images.hero.small,
-    imageLarge: data[0].images.hero.large,
-    name: data[0].name,
-    artist: data[0].artist.name,
-    artistImg: data[0].artist.image,
-    year: data[0].year,
-    description: data[0].description,
-    source: data[0].source,
-  })
 
   // changes document title when state is updated
   useEffect(() => {
     document.title = `Galleria | ${state.name}`
-  }, [state])
+    setIsHome(false)
+  }, [state, setIsHome])
 
+  // button controllers
   const decrementIndex = () => {
-    if (i <= 0) {
+    if (index <= 0) {
       setIndex(data.length - 1)
       dispatch({ type: ACTIONS.UPDATE })
     } else {
@@ -62,7 +37,7 @@ function Gallery({ data }) {
     }
   }
   const incrementIndex = () => {
-    if (i >= data.length - 1) {
+    if (index >= data.length - 1) {
       setIndex(0)
       dispatch({ type: ACTIONS.UPDATE })
     } else {
@@ -73,39 +48,75 @@ function Gallery({ data }) {
 
   return (
     <main className="gallery">
-      <section className="gallery__container">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="gallery__container"
+      >
         <ImageWorks
           className="gallery__image"
           source={isMobile ? state.imageMobile : state.imageLarge}
           alt={`"${state.name}" by ${state.artist}, ${state.year}`}
         />
         <div className="gallery__content-wrapper">
-          <h1 className="gallery__name">{state.name}</h1>
-          <address className="gallery__artist-name">{state.artist}</address>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            className="gallery__name"
+          >
+            {state.name}
+          </motion.h1>
+          <motion.address
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.75 }}
+            className="gallery__artist-name"
+          >
+            {state.artist}
+          </motion.address>
           <ImageWorks
             className="gallery__artist-image"
             source={state.artistImg}
             alt={`${state.artist} portrait`}
           />
         </div>
-      </section>
+      </motion.section>
       <article className="gallery__description-container">
-        <span className="gallery__year">{state.year}</span>
-        <p className="gallery__description">{state.description}</p>
-        <a
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 1 }}
+          className="gallery__year"
+        >
+          {state.year}
+        </motion.span>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 1.15 }}
+          className="gallery__description"
+        >
+          {state.description}
+        </motion.p>
+        <motion.a
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 1.25 }}
           className="gallery__source"
           href={state.source}
           target="_blank"
           rel="noreferrer"
         >
           Go to source
-        </a>
+        </motion.a>
       </article>
       <footer className="footer">
         <div className="footer__progress-bg">
           <div
             className="footer__progress-overlay"
-            style={{ width: ((i + 1) / data.length) * 100 + '%' }}
+            style={{ width: ((index + 1) / data.length) * 100 + '%' }}
           />
         </div>
         <nav className="footer__nav-container">

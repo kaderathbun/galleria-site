@@ -16,7 +16,7 @@
     bottom: -95px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     background: $white;
     width: 78%;
     max-width: 480px;
@@ -132,7 +132,7 @@
 @media only screen and (min-width: 461px) {
   .gallery {
     &__content-wrapper {
-      bottom: -75px;
+      bottom: -40px;
     }
   }
 }
@@ -177,6 +177,7 @@
     &__description-container {
       padding-inline: 40px;
       padding-inline: 155px;
+      max-width: 1042px;
       margin: 0 auto;
     }
     &__year {
@@ -216,7 +217,7 @@
   .gallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr min-content;
+    grid-template-rows: auto min-content;
     margin-top: 50px;
 
     &__container {
@@ -225,15 +226,15 @@
       grid-row: 1/2;
     }
     &__image {
-      width: 70%;
+      width: 80%;
     }
     &__content-wrapper {
-      right: -90px;
+      right: -145px;
       top: 19px;
     }
     &__artist-image {
       right: initial;
-      left: 100px;
+      left: 120px;
       bottom: -295px;
     }
     &__description-container {
@@ -241,6 +242,7 @@
       grid-row: 1/2;
       padding-inline: 185px;
       align-self: end;
+      max-width: initial;
     }
     &__year {
       top: -125px;
@@ -262,10 +264,6 @@
   .gallery {
     &__description-container {
       align-self: center;
-    }
-    &__artist-image {
-      left: initial;
-      right: 45%;
     }
   }
 }

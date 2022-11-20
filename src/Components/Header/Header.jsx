@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 // styles
 import './Header.scss'
 import Logo from '../../assets/shared/logo.svg'
+import { ContentContext } from '../../Helpers/ContentContext'
 
 function Header() {
-  const [isHome, setIsHome] = useState(true)
+  const { isHome, setIsHome } = useContext(ContentContext)
 
   const handleIsHome = () => {
     setIsHome(!isHome)
@@ -14,7 +15,9 @@ function Header() {
 
   return (
     <header className="header">
-      <img className="header__logo" src={Logo} alt="Galleria" />
+      <Link onClick={handleIsHome} to={'/galleria'}>
+        <img className="header__logo" src={Logo} alt="Galleria" />
+      </Link>
       <Link
         className="header__btn-slideshow"
         onClick={handleIsHome}
