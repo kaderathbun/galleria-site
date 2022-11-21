@@ -17,13 +17,13 @@ function Header() {
 
   return (
     <header className="header">
-      <Link onClick={handleIsHome} to={'/galleria'}>
+      <Link onClick={handleIsHome} to={'/'}>
         <img className="header__logo" src={Logo} alt="Galleria" />
       </Link>
       <Link
         className="header__btn-slideshow"
         onClick={handleIsHome}
-        to={isHome ? '/galleria/slideshow' : '/galleria/'}
+        to={isHome ? '/galleria/slideshow' : '/'}
       >
         {isHome ? 'Start Slideshow' : 'Stop Slideshow'}
       </Link>
