@@ -16,6 +16,7 @@ import { ContentContext } from './Helpers/ContentContext'
 // pages
 import Home from './Pages/Home/Home'
 import Gallery from './Pages/Gallery/Gallery'
+import Error from './Pages/Error/Error'
 
 function App() {
   const ACTIONS = {
@@ -74,6 +75,7 @@ function App() {
           <Routes>
             <Route index path="/galleria" element={<Home />} />
             <Route path="/galleria/slideshow" element={<Gallery />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </ContentContext.Provider>
       </BrowserRouter>
