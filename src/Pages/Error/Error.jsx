@@ -8,9 +8,9 @@ import { FaSpinner } from 'react-icons/fa'
 function Error() {
   const navigate = useNavigate()
 
-  // setTimeout(() => {
-  //   navigate('/galleria')
-  // }, 5000)
+  setTimeout(() => {
+    navigate('/galleria')
+  }, 6000)
 
   return (
     <div className="error">
