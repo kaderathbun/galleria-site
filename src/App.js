@@ -73,7 +73,7 @@ function App() {
         >
           <Header />
           <Routes>
-            <Route index path="/galleria" element={<Home />} />
+            <Route index exact path="/" element={<Home />} />
             <Route path="/galleria/slideshow" element={<Gallery />} />
             <Route path="*" element={<Error />} />
           </Routes>

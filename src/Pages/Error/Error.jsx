@@ -9,7 +9,7 @@ function Error() {
   const navigate = useNavigate()
 
   setTimeout(() => {
-    navigate('/galleria')
+    navigate('/')
   }, 6000)
 
   return (
