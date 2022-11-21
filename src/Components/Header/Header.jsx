@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 // styles
 import './Header.scss'
 import Logo from '../../assets/shared/logo.svg'
+
+// helpers
 import { ContentContext } from '../../Helpers/ContentContext'
 
 function Header() {

@@ -52,9 +52,11 @@ function Gallery() {
 
   const handleOpen = () => {
     setIsOpen(true)
+    document.body.style.overflow = 'hidden'
   }
   const handleClose = () => {
     setIsOpen(false)
+    document.body.style.overflow = 'initial'
   }
 
   return (
@@ -151,14 +153,16 @@ function Gallery() {
       </footer>
       {isOpen ? (
         <Modal>
-          <button onClick={handleClose} className="modal__close">
-            Close
-          </button>
-          <ImageWorks
-            className="modal__image"
-            source={state.imageLarge}
-            alt={`"${state.name}" by ${state.artist}, ${state.year}`}
-          />
+          <div className="modal__container">
+            <button onClick={handleClose} className="modal__close">
+              Close
+            </button>
+            <ImageWorks
+              className="modal__image"
+              source={state.imageLarge}
+              alt={`"${state.name}" by ${state.artist}, ${state.year}`}
+            />
+          </div>
         </Modal>
       ) : null}
     </main>
